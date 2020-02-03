@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Hexo
+    </title>
+    <link rel="shortcut icon" href="/images/favicon.ico">
+        
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/meethigher-font.css">
+
+            
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/animate.css">
+
+                
+<link rel="stylesheet" href="/css/index.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+    <body>
+        <header class="header">
+    <div class="header-menu"><span class="fa fa-bars"></span></div>
+    <div class="header-search"><span class="fa fa-search"></span></div>
+    <div class="header-title"><a href="/">Hexo | <span class="header-subtitle"></span></a></div>
+    <ul class="header-navbar clearFix">
+        
+            <li><a href="/">主页</a></li>
+        
+            <li><a href="/tags">标签</a></li>
+        
+            <li><a href="/archives">归档</a></li>
+        
+    </ul>
+</header>
+            <main class="main">
+                <div class="main-content meethigher-scroll">
+    <article class="post">
+        <div class="post-title">
+            <h2 class="title">html</h2>
+        </div>
+        <div class="post-media2">
+            <span class="post-time">2020-02-03</span>
+            
+        </div>
+        <div class="post-content blog-markdown">
+            <p>HTML：超文本标签语言</p>
+<p>h5并不是新语言，而是html语言的第五个版本</p>
+<p>支持：所有主流浏览器都支持h5（chrome，Firefox，safari。。。）。IE9（部分支持）及以上支持h5，但是ie8（完全不支持）及以下不支持h5.</p>
+<p>增加了新特性:语义特性，本地存储特性，网页多媒体，二维三维，特效。</p>
+<p>HTML骨架:</p>
+<html> 根标签/根节点
+
+<pre><code>&lt;head&gt; 用于存放title、meta、base、style、script、link</code></pre><p>​              <title></title>标题标签</p>
+<pre><code>&lt;/head&gt;
+
+&lt;body&gt;主体标签
+
+&lt;/body&gt;</code></pre></html>
+
+
+
+<p>标签分类:双标签 &lt;标签名&gt;内容&lt;/标签名&gt;</p>
+<p>​         单标签 &lt;标签名/&gt; 如换行标签<br /></p>
+<p>标签关系</p>
+<p>1.嵌套关系：如html是所有标签的父标签、</p>
+<p>2.并列关系：如head和body标签</p>
+<p>如果两个标签是嵌套关系，子元素最好缩进一个tab的身位。若是并列关系，最好上下对齐。</p>
+<p>sublime快速生成html骨架：1.html：5后tab 2.！后tab   *快速生成必备插件：emmet</p>
+<!DOCTYPE xxx><p>标签作用：告诉我们使用哪个html版本</p>
+<p>如&lt;！DOCTYPE html&gt;说明使用的是h5版本</p>
+<p>字符集</p>
+<p>utf-8：包含全世界所有国家需要用到的字符</p>
+<p>gb2312：简体中文</p>
+<p>BIG5：繁体中文</p>
+<p>GBK：包含全部中文字符</p>
+<p>标签的语义化：指标签的含义</p>
+<p>遵循的原则：先确定语义的html，再选合适的CSS</p>
+<hr>
+<p>HTML标签：</p>
+<p>一、排版标签：</p>
+<p><strong>1.标题标签：<h1></h1> <h2></h2>  <h3></h3> <h4></h4> <h5></h5></strong> </p>
+<p><strong>2.段落标签：<p> 文本内容 </p></strong> </p>
+<p><strong>3.水平线标签：<hr />(单标签) 增加一条线 hr=horizon</strong></p>
+<p><strong>4.换行标签：<br /> br=break</strong></p>
+<p><strong>5.div span标签：网页布局的两个主要盒子  div=division</strong></p>
+<p><strong>二、文本格式化标签</strong></p>
+<p><strong>1.字体加粗：<strong> </strong></strong></p>
+<p><strong>2.字体倾斜：<em> </em></strong> </p>
+<p><strong>3.字体加删除线:<del> </del></strong></p>
+<p><strong>4.字体加下划线：<ins> </ins></strong></p>
+<p>标签属性</p>
+<p>基本语法格式：</p>
+<p>&lt;标签名 属性1=“属性值” 属性2=“属性值2” …&gt;内容&lt;/标签名&gt;</p>
+<p>在上面的语法中，</p>
+<ol>
+<li>标签可以拥有多个属性，必须写在开始标签中，位于标签名后面</li>
+<li>属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。</li>
+<li>任何标签的属性都有默认值，省略该属性则取默认值</li>
+</ol>
+<p>采取 键值对 的格式 key=”value”的格式</p>
+<ol>
+<li>图像标签</li>
+</ol>
+<p>基本语法格式</p>
+<img src=”图像URL(图像路径)” />
+
+
+
+<p><img />标记属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>src</td>
+<td>URL</td>
+<td>图像的路径</td>
+</tr>
+<tr>
+<td>alt</td>
+<td>文本</td>
+<td>图像不能显示时的替换文本</td>
+</tr>
+<tr>
+<td>title</td>
+<td>文本</td>
+<td>鼠标悬停时显示的内容</td>
+</tr>
+<tr>
+<td>width</td>
+<td>像素</td>
+<td>图像宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>像素</td>
+<td>图像高度</td>
+</tr>
+<tr>
+<td>border</td>
+<td>像素</td>
+<td>边框宽度</td>
+</tr>
+</tbody></table>
+<p>四、链接标签</p>
+<p>基本语法格式：</p>
+<p><a href=”跳转目标”  target=”目标窗口的弹出方式”>文本或图像</a></p>
+<p>Href用于指定链接目标的url地址，当为标签应用href属性值时，它就具有了超链接的功能</p>
+<p>Target用于指定链接页面打开方式，有_self和_blank两种取值，其中self为默认值，blank为在新窗口中打开方式。</p>
+<p>即如果想要对元素添加点击链接功能，则需要对其加上链接标签即a标签</p>
+<p>注意</p>
+<ol>
+<li>外部链接 需要添加http://</li>
+<li>内部链接 直接链接内部页面名称即可 比如<a href=”index.html”>首页</a></li>
+<li>如果没有确定链接目标，通常将链接标签的href属性值定义为”#”，表示该链接暂时为一个空链接</li>
+<li>除了文本，图像表格音频视频等都可以添加超链接 如<a href="img标签.html" target="blank"><img src="C:\Users\Administrator\Desktop\炜\photo\职业照小.jpeg"></a></li>
+</ol>
+<p>锚点定位</p>
+<p>&lt;a href=”#id=uu”&gt;xxx</a>  记得添加#和””号！！！！！非常重要！！！！！</p>
+<p><strong>&lt;标签名 id=uu&gt; &lt;/标签名&gt;</strong></p>
+<p><strong>详例见锚点定位.html</strong></p>
+<p><strong>Base标签</strong></p>
+<p><strong>在head中添加&lt;base target=**</strong>”<strong><strong>_blank</strong></strong>”** <strong>/&gt; 可实现所有链接都以新窗口打开，同理_blank改为_self则实现所有链接都以自身窗口打开</strong></p>
+<p><strong>若想实现其中某个链接以不同方式打开，则对其单独设置target属性即可。</strong></p>
+<p>特殊字符代码  都要记得加“&amp;”</p>
+<p><img src="C:%5CUsers%5CWHO%5CAppData%5CLocal%5CYNote%5Cdata%5Cqq84C281D5A87880FDA451FD57E40936A6%5C82ebc9a4baca484fb7f9cd0477d539a4%5Cimage1.jpeg" alt="img"></p>
+<p>重点记住前三个</p>
+<p>注释标签</p>
+<!--xxx--> 养成注释的习惯！！！！！！！！
+
+<hr>
+<p>路径</p>
+<p><img src="C:%5CUsers%5CWHO%5CAppData%5CLocal%5CYNote%5Cdata%5Cqq84C281D5A87880FDA451FD57E40936A6%5Ce6f5ebdbf91641cc960c2ec462f7cdb6%5Cimage2.png" alt="img"></p>
+<p>一般不用绝对路径</p>
+<hr>
+<p>无序列表：各个列表项之间没有顺序级别之分，是并列的（没有顺序数字前戳）。</p>
+<p>基本语法格式：</p>
+<ul>
+
+<li>列表项1</li>
+
+<li>列表项2</li>
+
+<li>列表项3</li>
+
+<p>…</p>
+</ul>
+
+<p>注意事项：</p>
+<p>1.<ul></ul>之间只能嵌套<li></li>，直接在<ul></ul>标签中输入其他标签或者文字的做法是不被允许的。</p>
+<p>2.<li></li>之间相当于一个容器,可以容纳所有元素</p>
+<p>3.无序列表的样式可让CSS来完成设置</p>
+<p>有序列表：带顺序数字前缀的列表</p>
+<p>基本语法格式：</p>
+<ol>
+
+<li>列表项</li>
+
+<p>….</p>
+</ol>
+
+<p>注意事项与无序列表相同</p>
+<p>自定义列表(理解即可）：常用于对术语或名词进行解释和描述，定义列表的列表项前没有任何项目符号。一般用于网页结尾。</p>
+<p>基本语法：</p>
+<dl>
+
+<dt>名词1</dt>
+
+<dd>名词1解释1</dd>
+
+<dd>名词1解释2</dd>
+
+<p>…</p>
+<dt>名词2</dt>
+
+<dd>名词2解释1</dd>
+
+<dd>名词2解释2</dd>
+
+<p>…</p>
+</dl>
+
+<hr>
+<p>表格创建</p>
+<p>基本语法格式：</p>
+<table>
+
+<tr>
+
+<td>单元格内的文字</td>
+
+<p>…</p>
+</tr>
+
+<p>…</p>
+</table>
+
+
+
+<p>Table为整体框架</p>
+<p>Tr为行数</p>
+<p>Td为每一行内的单元格数（没有列的说法）</p>
+<p>注意事项：table里只能放tr标签，不能放其他。而td里可以放任何东西。</p>
+<p> 表格属性</p>
+<p><img src="C:%5CUsers%5CWHO%5CAppData%5CLocal%5CYNote%5Cdata%5Cqq84C281D5A87880FDA451FD57E40936A6%5C7c0dd2f545344c858703714d38d9ac0c%5Cimage3.jpeg" alt="img"></p>
+<p>表头标签</p>
+<p>把表头的<td>换成<th>，会自动加粗居中。</p>
+<p>表头结构</p>
+<p>表格布局时可分为头部主体和页脚</p>
+<thead></thead>:用于定义表格头部
+
+<tbody></tbody>:用于定位表格主体
+
+<p>以上两种都不显示，只是用于布局。</p>
+<p>表格标题</p>
+<caption>标题</caption> 写在table标签内
+
+
+
+<p>合并单元格</p>
+<p>跨行合并：rowspan 跨列合并：colspan</p>
+<p>合并单元格的思想：将多个内容合并的时候，会有多余的东西，将其删除。例如把3个td合并成一个，就多于2个，需要删除</p>
+<p>公式 删除的个数=合并的个数-1</p>
+<p>表格不要纠结于外观，是CSS的作用</p>
+<hr>
+<p>表单</p>
+<p>组成：表单控件，提示信息，表单域3个部分构成</p>
+<p>input控件（重点）为单标签</p>
+<p><img src="C:%5CUsers%5CWHO%5CAppData%5CLocal%5CYNote%5Cdata%5Cqq84C281D5A87880FDA451FD57E40936A6%5Cb8bb4525045b46be8f42a7231e6d90b1%5Cimage4.jpeg" alt="img"></p>
+<p>Type中image可以设置按钮为其他图像 <input type="image" src="img/三国.jpg"></p>
+<p>File可以用来上传文件 添加multiple属性可以上传多个文件</p>
+<p>如果单选框是同一组，那么可以通过name属性来设置为一组，从而限制选择</p>
+<p>Value可以改变按钮中的文本</p>
+<p>Checked可以设置默认选项 即<input type=”button” checked=”checked” /></p>
+<p>Maxlength可以设置其最大输入字符数</p>
+<p>H5input新增的type类型</p>
+<p><img src="C:%5CUsers%5CWHO%5CAppData%5CLocal%5CYNote%5Cdata%5Cqq84C281D5A87880FDA451FD57E40936A6%5C65e65ee41d4e4897ad55da4abd86fb65%5Cimage5.jpeg" alt="img"></p>
+<p>email 用于填写邮箱，填写时必须有@符号，同时包含服务器域名。如不能满足验证，则会阻止当前的数据提交</p>
+<p>tel 用于填写号码，不是用来验证，是为了能在移动端打开键盘时打开数字键盘。即限制了用户只能输入数字</p>
+<p>url填写网址。只能输入合法的网址，必须包含http：//</p>
+<p>number 只能输入数字 其中 max最大值 min最小值 value默认值</p>
+<p>新增占位符焦点多选等属性（即input中的属性值）</p>
+<p>color 选择颜色</p>
+<p>Label标签的使用</p>
+<p>若想实现点击文字就可进入文本框，则可用label标签包裹整个表单选项</p>
+<p>如：<label>输入账号：<input type="text" /></label> </p>
+<p>若有多个输入框，想定位到某个，则对目标框设置id，然后<label for=”id”></label></p>
+<p>若想实现大量文本输入，则可用textarea标签</p>
+<p>语法：<textarea>请输入留言</textarea></p>
+<p>下拉菜单：用select标签</p>
+<select>
+
+<p>​        <option  >北京</option></p>
+<p>​        <option selected="selected" >上海</option></p>
+<p>​        <option >广州</option></p>
+<p>​        <option >深圳</option></p>
+</select>
+
+<p>其中selected=”selected”代表默认选项</p>
+<p>option也可以为单标签，效果一样</p>
+<p>表单域：即整个表单框架</p>
+<p>基本语法：</p>
+<form action=”url地址” method=”提交方式” name=”表单名称”>
+
+<p>各种表单控件</p>
+</form>
+
+<p>常用属性：</p>
+<p>Action:表单收集到信息后，需要将信息传递给服务器进行处理，action属性用于指定接收并处理表单数据的服务器程序的url地址</p>
+<p>Method：用于设置表单数据的提交方式，其取值为get或post</p>
+<p>Name：用于指定表单的名称，以区分同一个页面中的多个表单。</p>
+<p>注意：每个表单都要有自己的表单域</p>
+<hr>
+<p>html文档类型和字符集</p>
+<p> HTML:sublime输入html：4s</p>
+<p>HTML5:sublime输入html：5 或 ！</p>
+<p>XHTML:sublime输入html：xt</p>
+<p>H5中字符集写法：<meta charset=”UTF-8”></p>
+<p>H5常用新标签</p>
+<p>Header：定义文档的页眉 头部</p>
+<p>Nav：定义导航链接的部分</p>
+<p>Footer：定义文档或节的页脚 底部</p>
+<p>Article：定义文章</p>
+<p>Section：定义文档中的节</p>
+<p>Aside：定义其所处内容之外的内容 侧边</p>
+<p>Datalist：标签定义选项列表，请与input元素配合使用该元素</p>
+<p>Fieldset:可将表单内的相关元素分组，打包</p>
+<p>Datalist用法</p>
+<p>通过设置id并在input中的list属性链接这个id，从而达到智能显示的效果</p>
+<p><input type="text" value="输入明星" list="star">     <!-- input里面用list --></p>
+<p><datalist id="star">  <!-- datalist里面用id实现和input的链接 --></p>
+<p>​        <option >刘德华</option></p>
+<p>​        <option >郭富城</option></p>
+<p>​        <option >黎明</option></p>
+<p>​        <option >张学友</option></p>
+<p>​        <option >叼你妈</option></p>
+<p>​        <option >臭傻逼</option></p>
+<p>​        <option >曹尼玛</option></p>
+<p>​        <option >吃屎吧</option></p>
+</datalist>
+
+<p>datalist与selection的区别:前者不仅可以选择，还可以输入。</p>
+<p>datalist弊端：在不同浏览器的显示不同，少用</p>
+<p>如果与之连接的input type值为url，则其value值必须添加http://</p>
+<p>Fieldset用法：</p>
+<p>与legend搭配使用，legend包含在fieldset里面负责写标题。例：</p>
+<fieldset>
+
+<p>​        <legend>用户登录</legend>   <!-- 标题 --></p>
+<p>​        用户名：<input type="text"> <br /></p>
+<p>​        密　　码：<input type="password"></p>
+</fieldset> 
+
+
+
+<p>常用属性值</p>
+<p>Placeholder 可实现用户输入时里面的文字消失，删除所有文字，自动返回</p>
+<p>Autofocus：实现打开网页时，光标自动定位到其所在表单</p>
+<p>Autocomplete：实现自动记录表单内容，再次输入时可智能提示</p>
+<p>用法：用户名：<input type="text" autocomplete="on" name="username"></p>
+<p>​                <input type="submit"></p>
+<p>注意：必须要有提交按钮。其次表单必须要有名字。</p>
+<p>required：要求必须输入</p>
+<p>pattern:正则表达式验证</p>
+<p>multiple 实现上传填写多个东西</p>
+<p>form：指定某个表单id，再将当前表单的form属性值设置为与其id相同。在将来指定id号的表单进行数据提交的时候，也会将当前表单元素的数据进行提交</p>
+<p>————————————————————————————————————————————</p>
+<p>多媒体标签</p>
+<p>引用网上的视频：embed</p>
+<p>引用本地视频：video 三种格式：mp4、ogg、wmv</p>
+<p>引用本地音频：audio 三种格式：mp3、ogg、wav</p>
+<p>常用属性 ：autoplay控制自动播放  controls：添加进度条等控制元素</p>
+<p>Loop：x 循环播放x次 poster：设置视频封面</p>
+<p>​    <!-- 从上往下一个个尝试 --></p>
+<pre><code>&lt;video controls&gt;</code></pre><p>​        <source src="xx.mp4"></p>
+<p>​        <source src="xx.flv"></p>
+<p>​    </video></p>
+<p>———————————————————————————————————————————</p>
+<!-- 解决低版本浏览器新标签不兼容的措施 -->
+
+<p>​    <!-- 1.通过创建新标签并转化标签模式 --></p>
+<p>​    &lt;!– <script></p>
+<p>​        document.createElement("名字")   默认为行级元素</p>
+<p>​    </script> –&gt;</p>
+<p>​    <!-- 2.通过引入第三方插件 --></p>
+<pre><code>&lt;script src=&quot;../html5shiv.min.js&quot;&gt;&lt;/script&gt;</code></pre><p>其他标签</p>
+<p>keygen 实现加密 产生私钥和公钥，私钥客户端对信息进行二次加密后与公钥一起发给服务器，服务器再通过公钥对其解密</p>
+<p>output输出信息</p>
+
+        </div>
+        
+            <div class="busuanzi">
+                <span id="busuanzi_container_page_pv">阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            </div>
+        
+    </article>
+    <div class="outline"><span class="fa fa-list"></span></div>
+</div>
+                    <pointer href="javascript:void(0);" class="arrow fa fa-arrow-up"></pointer>
+<pointer href="javascript:void(0);" class="arrow fa fa-arrow-down"></pointer>
+
+            </main>
+            <aside class="aside">
+    <div class="aside-content">
+        <div class="aside-avatar"><img src="/images/maomi.jpg" alt="lhl"></div>
+        <div class="aside-author">lhl</div>
+        <div class="aside-description">爱玩植物大战僵尸</div>
+        <ul class="aside-contact clearFix">
+            <li><span class="fa fa-github"></span><a href="https://github.com/Mikasayooooo" target="_blank" rel="noopener">Github</a></li>
+            <li><span class="fa fa-envelope"></span><a href="javascript:void(0);">1056205431@qq.com</a></li>
+            <li><span class="fa fa-weixin"></span><a href="javascript:void(0);"><img src="" alt="扫描微信二维码，加我哦！"></a></li>
+        </ul>
+    </div>
+</aside>
+                <div class="toolbar"><span class="fa fa-th"></span></div>
+                    <div class="search"><span class="fa fa-search"></span></div>
+                        <div id="particles-js"></div>
+                            
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/jquery.min.js"></script>
+
+                                
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/particles.min.js"></script>
+
+                                    
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/app.js"></script>
+
+                                        
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@11/js/layer/layer.js"></script>
+
+                                            
+<script src="/js/meethigher.js"></script>
+
+                                                
+<script src="/js/toolbar.js"></script>
+
+    </body>
+
+</html>
