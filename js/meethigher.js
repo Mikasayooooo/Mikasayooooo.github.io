@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
     let $menu = $(".header-menu");
     let $headerNavbar = $(".header-navbar");
     let $arrowUp = $(".arrow.fa-arrow-up");
@@ -7,43 +7,43 @@ $(function () {
     let $copy = $("figure.highlight tbody");
     let flag = false;
     let isClick = true;
-    printDefaultLog();
+    // printDefaultLog();
 
-    function printDefaultLog() {
-        console.log("%c@description:言成的个人博客\n@author:言成言成啊\n@link:https://meethigher.top/\n@createDate:2019-09-16", "font-size:18px; font-weight:bold; color:#24a0f0;")
-    }
+    // function printDefaultLog() {
+    //     console.log("%c@description:言成的个人博客\n@author:言成言成啊\n@link:https://meethigher.top/\n@createDate:2019-09-16", "font-size:18px; font-weight:bold; color:#24a0f0;")
+    // }
 
-    $menu.on("click", function () {
+    $menu.on("click", function() {
         if (!isClick) return;
         isClick = false;
         if (!flag) {
-            $headerNavbar.fadeIn(function () {
+            $headerNavbar.fadeIn(function() {
                 flag = true;
                 isClick = true;
             });
             return;
         }
-        $headerNavbar.fadeOut(function () {
+        $headerNavbar.fadeOut(function() {
             flag = false;
             isClick = true;
         });
     });
-    $arrowUp.on("click", function () {
+    $arrowUp.on("click", function() {
         $mainContent.animate({
             scrollTop: 0
         });
     });
-    $arrowDown.on("click", function () {
+    $arrowDown.on("click", function() {
         let scrollHeight = $mainContent[0].scrollHeight - $mainContent[0].offsetHeight;
         $mainContent.animate({
             scrollTop: scrollHeight
         });
     });
-    $mainContent.scroll(function () {
+    $mainContent.scroll(function() {
         $arrowUp.fadeIn();
         $arrowDown.fadeIn();
     });
-    $copy.on("click", function () {
+    $copy.on("click", function() {
         let $pre = $(this).find(".code pre");
         let text = $pre.text();
         let $input = $("<input>");
@@ -55,12 +55,12 @@ $(function () {
         $input.select();
         document.execCommand("Copy");
         $input.remove();
-        setTimeout(function () {
+        setTimeout(function() {
             $copySuccess.remove();
         }, 1500);
     });
-    let getLanguage = function () {
-        $("figure.highlight").each(function () {
+    let getLanguage = function() {
+        $("figure.highlight").each(function() {
             let str = $(this).attr("class");
             str = str.substr(10);
             let $span = $("<span class='language'>" + str + "</span>");
@@ -70,11 +70,11 @@ $(function () {
     getLanguage();
 });
 //生成文章的目录
-$(function () {
+$(function() {
     let $outline = $(".outline");
     let $catalog = $("<ul></ul>");
     let $headerlink = $(".headerlink");
-    $headerlink.each(function () {
+    $headerlink.each(function() {
         let spaceNum = "";
         switch ($(this).parent()[0].tagName) {
             case "H1":
@@ -100,10 +100,10 @@ $(function () {
         let $li = $("<li></li>");
         let $a = $("<a href='" + $(this).attr("href") + "'>" + content + "</a>");
         $li.append($a);
-        $li.css("margin-left",spaceNum*10+"px");
+        $li.css("margin-left", spaceNum * 10 + "px");
         $catalog.append($li);
     });
-    $outline.on("click", function () {
+    $outline.on("click", function() {
         layer.open({
             title: "大纲目录",
             type: 1,
@@ -114,8 +114,8 @@ $(function () {
     });
 });
 //搜索功能
-$(function (){
-    $(".header-search").on("click",function (){
+$(function() {
+    $(".header-search").on("click", function() {
         $(".search").click();
     });
     //=============================================
@@ -125,37 +125,37 @@ $(function (){
     let ajaxing = false;
 
     function ajaxSearch() {
-        url=[];
-        title=[];
-        content=[];
+        url = [];
+        title = [];
+        content = [];
         ajaxing = true;
         $.ajax({
-            url: "/blog/meethigher.xml",//此处需要修改成你的路径
+            url: "/blog/meethigher.xml", //此处需要修改成你的路径
             dataType: "xml",
             type: "GET",
-            error: function () {
+            error: function() {
                 layer.msg("请检查你的配置哦，亲❤~");
             },
-            success: function (data) {
-                $(data).find("entry").each(function () {
+            success: function(data) {
+                $(data).find("entry").each(function() {
                     url.push($(this).find("url").text());
                     title.push($(this).find("title").text());
                     content.push($(this).find("content").text());
                 });
             },
-            complete: function () {
+            complete: function() {
                 ajaxing = false;
             }
         });
     }
 
-    function searchResult($result,value) {
+    function searchResult($result, value) {
         let count = 0;
-        let index= layer.load(1, {shade: [0.1, '#fff']});
-        let timeId = setInterval(function () {
+        let index = layer.load(1, { shade: [0.1, '#fff'] });
+        let timeId = setInterval(function() {
             count++;
             if (!ajaxing) {
-                render($result,value);
+                render($result, value);
                 clearInterval(timeId);
                 layer.close(index);
             }
@@ -168,21 +168,21 @@ $(function (){
         }, 1000);
     }
 
-    function render($result,value) {
-        let isContains=false;
-        content.forEach(function (ele,index){
-            if(ele.indexOf(value)>-1){
-                let $li=$("<li><a href='"+url[index]+"'>"+title[index]+"</a></li>");
+    function render($result, value) {
+        let isContains = false;
+        content.forEach(function(ele, index) {
+            if (ele.indexOf(value) > -1) {
+                let $li = $("<li><a href='" + url[index] + "'>" + title[index] + "</a></li>");
                 $result.append($li);
-                isContains=true;
+                isContains = true;
             }
         });
-        if(!isContains)
+        if (!isContains)
             layer.msg("没有你要的内容哦，亲❤~");
     }
     //================================================
 
-    $(".search").on("click",function (){
+    $(".search").on("click", function() {
         layer.open({
             title: "站内搜索",
             type: 1,
@@ -194,23 +194,23 @@ $(function (){
                 "    <ul class=\"result\"></ul>\n" +
                 "</div>"
         });
-        let $input=$("#input");
-        let $button=$(".btn-search");
-        let $result=$(".result");
-        $input.on("keydown",function (e){
-            if(e.which===13){
+        let $input = $("#input");
+        let $button = $(".btn-search");
+        let $result = $(".result");
+        $input.on("keydown", function(e) {
+            if (e.which === 13) {
                 $button.click();
             }
         });
-        $button.on("click",function (){
+        $button.on("click", function() {
             $result.empty();
             ajaxSearch();
             let value = $input.val();
-            if(value===""||value===null){
+            if (value === "" || value === null) {
                 layer.msg("请输入你要搜索的内容哦，亲❤~");
                 return;
             }
-            searchResult($result,value);
+            searchResult($result, value);
         });
     });
 
