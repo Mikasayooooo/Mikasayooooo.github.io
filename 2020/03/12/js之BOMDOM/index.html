@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Hexo
+    </title>
+    <link rel="shortcut icon" href="/images/favicon.ico">
+        
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/meethigher-font.css">
+
+            
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/animate.css">
+
+                
+<link rel="stylesheet" href="/css/index.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+    <body>
+        <header class="header">
+    <div class="header-menu"><span class="fa fa-bars"></span></div>
+    <div class="header-search"><span class="fa fa-search"></span></div>
+    <div class="header-title"><a href="/">Hexo | <span class="header-subtitle"></span></a></div>
+    <ul class="header-navbar clearFix">
+        
+            <li><a href="/">主页</a></li>
+        
+            <li><a href="/tags">标签</a></li>
+        
+            <li><a href="/archives">归档</a></li>
+        
+    </ul>
+</header>
+            <main class="main">
+                <div class="main-content meethigher-scroll">
+    <article class="post">
+        <div class="post-title">
+            <h2 class="title">js之BOMDOM</h2>
+        </div>
+        <div class="post-media2">
+            <span class="post-time">2020-03-12</span>
+            
+        </div>
+        <div class="post-content blog-markdown">
+            <p>DOM:文档对象模型（document object model）</p>
+<p>BOM：浏览器对象模型</p>
+<p>API（application programming interafce，应用程序编程接口）：是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节</p>
+<p>Web API:浏览器提供的一套操作浏览器功能和页面元素的API</p>
+<p><strong>可以将Web浏览器当做简单操作系统，就可以web应用定义为JavaScript访问更多浏览器提供的高级服务的Web页面</strong></p>
+<p><strong>文档中的javaScript的角色定位：增强用户浏览体验，使信息的获取和传递更容易。而不是降低网页的可访问性。</strong></p>
+<p><strong>DOM：</strong>文档对象模型（document object model），处理HTML或者XML的标准编程接口，通过DOM可以改变网页的内容、结构和样式</p>
+<p><strong>文档：一个**</strong>页面就是一个文档<strong><strong>，DOM中用</strong></strong>document<strong>**表示</strong></p>
+<p><strong>元素：页面中**</strong>所有标签都是元素<strong><strong>，DOM用</strong></strong>element<strong>**表示</strong></p>
+<p><strong>节点：网页中所有内容都是节点（标签属性文本注释等），DOM中用**</strong>node<strong>**表示</strong></p>
+<p>DOM把以上内容都看作是对象</p>
+<p><img src="C:%5CUsers%5CWHO%5CAppData%5CLocal%5CYNote%5Cdata%5Cqq84C281D5A87880FDA451FD57E40936A6%5Cf19ca06354dc4a05b6a61f1311192697%5C9e44e8cde88e40ac8849b96965c32c3b.jpg" alt="img"></p>
+<p><strong>获取页面元素</strong></p>
+<p>1.根据ID获取</p>
+<p>2.根据标签名获取</p>
+<p>3.根据h5新增属性获取</p>
+<p>4.特殊元素获取</p>
+<p>5.根据window属性获取（不推荐）</p>
+<p>6.利用HTMLCollection（HTML集合）快捷获取</p>
+<p><strong>1.根据ID获取</strong></p>
+<p><strong>document.getElementById(ID名）</strong></p>
+<body>     <div id="time">2019-9-9</div>     <script type="text/javascript">         var timer = document.getElementById('time');         console.log(timer);         console.log(typeof timer);         console.dir(timer);     </script> </body> 
+
+<p><strong>注意点</strong></p>
+<p><strong>1.因为文档页面从上往下加载，所以先得有标签，script写到标签下面</strong></p>
+<p><strong>2.参数id是大小写敏感的字符串 一定要加引号</strong></p>
+<p><strong>3.返回的是一个文档对象object（即有众多属性和方法）</strong></p>
+<p><strong>4.console.dir  打印对象且能更好查看里面的属性和方法</strong></p>
+<p><strong>2.根据标签名获取</strong></p>
+<p><strong>document.getElementsByTagName(标签名）</strong></p>
+<p><strong>父元素.getElementsByTagName（标签名）</strong></p>
+<p>var lis = document.getElementsByTagName(‘li’); console.log(lis); console.log(lis[2]); for(var i = 0;i&lt; lis.length;i++ ) {     console.log(lis[i]); }  var ol = document.getElementsByTagName(‘ol’); console.log(ol[0].getElementsByTagName(‘li’));  var ol = document.getElementById(‘ol’); console.log(ol.getElementsByTagName(‘li’)); </p>
+<p>注意：</p>
+<p>1.返回的值是伪数组，即所有相应标签的集合，即以伪数组的形式存储（无论有多少个，即使是0个），单个元素仍为对象，得到的元素是动态的</p>
+<p>2.可用遍历方式打印里面具体的元素对象</p>
+<p>3.通过父元素获取标签时，父元素必须是具体的单个对象，如果父元素是通过标签名获取，则获取其子元素时应加上索引号。也可以直接通过ID获取不加索引号</p>
+<p><strong>3.h5新增，返回的是NodeList对象</strong></p>
+<p><strong>document.getElementsByClassName（标签名）</strong></p>
+<p>var boxs = document.getElementsByClassName(‘box’);         console.log(boxs); </p>
+<p>注意</p>
+<p>1.返回的依旧是伪数组形式</p>
+<p><strong>document.querySelector（选择器） 如（#id，.类名，标签名）</strong></p>
+<p>返回指定选择器的第一个元素</p>
+<p>var firstbox = document.querySelector(‘.box’); console.log(firstbox); var nav = document.querySelector(‘#nav’); console.log(nav); var one = document.querySelector(‘li’); console.log(one); </p>
+<p>注意：永远只会返回一个元素对象</p>
+<p><strong>document.querySelectorAll(选择器)</strong></p>
+<p>返回选定选择器的所有元素集合</p>
+<p>var allbox  = document.querySelectorAll(‘.box’) ; console.log(allbox); var lis = document.querySelectorAll(‘li’); console.log(lis[1]); </p>
+<p>注意：返回的是伪数组形式（无论对象元素数量多少）</p>
+<p><strong>4.获取特殊元素</strong></p>
+<p><strong>1.获取body元素</strong></p>
+<p><strong>document.body</strong></p>
+<p>var bodyEle = document.body; console.log(bodyEle); </p>
+<p><strong>2.获取html元素</strong></p>
+<p><strong>document.documenElement</strong></p>
+<p>var htmlEle = document.documentElement; console.log(htmlEle); </p>
+<p><strong>3.获取head元素</strong></p>
+<p><strong>document.head</strong></p>
+<p>console.log(document.head); </p>
+<p><strong>5.根据window属性获取赋予id、name属性的html标签（**</strong>不推荐<strong>**）</strong></p>
+<p>如果HTML文档中用id属性为元素命名，并且<strong>Window对象没有该名字的属性</strong>，那么Window对象会创建一个同名属性，该属性指向以该名字命名id属性的html元素</p>
+<body>
+    <div id="one"></div>
+    <script type="text/javascript">
+        console.log(window.one);//<div id="one"></div>
+    </script>
+</body>
+
+
+
+<p>对于a、iframe、img、form等标签来说，如果有name属性，那么也会有与上面同样的表现。如果有多个相同name属性，则具有该名称的隐式全局变量会引用一个伪数组对象</p>
+<img src="" alt="" name="ii">
+    <img src="" alt="" name="ii">
+    <script type="text/javascript">
+        console.log(window.ii);//HTMLCollection(2) [img, img, ii: img]
+    </script>
+
+
+
+<p><strong>6.利用HTMLCollection（HTML集合）快捷获取，返回的是HTMLCollection对象</strong></p>
+<p><strong>HTMLDocument</strong>中定义了一些属性，如images、forms、links可以快速获取img、form、a等标签</p>
+<img src="" alt="">
+<img src="" alt="">
+    <script type="text/javascript">
+        console.log(document.images);//HTMLCollection(2) [img, img]
+    </script>
+
+
+
+<p><strong>事件概述：可以被javascript侦测到的行为</strong></p>
+<p>事件三要素</p>
+<p>1.事件源（可以通过获取对象方式获取）</p>
+<p>2.事件类型（设置事件的触发方式）</p>
+<p>3.事件处理程序（通过函数赋值方式完成）</p>
+<p>var btn = document.getElementById(‘btn’); btn.onclick = function () {     alert(‘点秋香’); } </p>
+<p>注意：第一句为获取事件源 .onclick为事件类型 function及后面为事件处理程序</p>
+<p><strong>事件执行三步骤：</strong></p>
+<p><strong>1.获取事件源</strong></p>
+<p><strong>2.绑定事件</strong></p>
+<p><strong>3.添加事件处理程序</strong></p>
+<p><strong>常见鼠标事件</strong></p>
+<p><img src="C:%5CUsers%5CWHO%5CAppData%5CLocal%5CYNote%5Cdata%5Cqq84C281D5A87880FDA451FD57E40936A6%5C4ecea1eb65614c038665f07ef890d9ed%5C05360a001dd542bb8ac2b9a88b7e4b48.jpg" alt="img"></p>
+<p><strong>ondblclick 双击事件</strong></p>
+<p><strong>改变元素内容（不适用于表单）</strong></p>
+<p><strong>1**</strong>.innerText：不识别html标签，非标准，会去除空格和换行**</p>
+<p><strong>2.**</strong>innerHTML：识别html标签，W3C标准，不会去除空格和换行**</p>
+<p><strong>3.**</strong>insertAdjacentHTML（位置,目标元素）  可以实现在目标元素中特定位置插入字符串**</p>
+<p>注：两个属性可读写，可以获取元素内容</p>
+<p>var p = document.querySelector(‘p’); console.log(p.innerText); console.log(p.innerHTML); </p>
+<p><strong>常用元素属性修改：src、href、title、alt、id</strong></p>
+<p><strong>改变表单元素内容</strong></p>
+<p><strong>input.value</strong></p>
+<p>var btn = document.querySelector(‘button’); var input = document.querySelector(‘input’); btn.onclick = function() {     input.value = ‘haha’;     this.disabled = true; } </p>
+<p>注意：</p>
+<p><strong>1.表单元素更改只能用value</strong></p>
+<p><strong>2.**</strong>disabled实现表单禁用**</p>
+<p><strong>3.函数中的this指向函数的调用者</strong></p>
+<p><strong>4.这些都是属性不是样式，不用写style</strong></p>
+<p>img.src 等等</p>
+<p><strong>可以通过修改表单type类型实现密码明文密文的转换</strong></p>
+<p><strong>改变元素对象样式</strong></p>
+<p><strong>1.element.style.样式 = ‘属性值’；  一般用于样式较少或功能简单的情况下使用</strong></p>
+<p>var div = document.querySelector(‘div’); div.onclick = function() {     // div.style 里面的样式用驼峰命名法     this.style.backgroundColor = ‘purple’;     this.style.width = ‘400px’;     // 修改后的样式为行内样式 权重比较高 } </p>
+<p>注意：</p>
+<p>1.利用js style修改的样式都得用驼峰命名法 如backgoroundColor、fontSize</p>
+<p>2.js修改后的样式都以行内样式生成，权重高</p>
+<p>3.样式的属性都是在style中，所以需要些xx.style.属性</p>
+<p><strong>获得失去焦点</strong></p>
+<p><strong>获得焦点（即点击输入框时）</strong></p>
+<p><strong>变量名.onfocus</strong></p>
+<p><strong>失去焦点（取消点击输入框时）</strong></p>
+<p><strong>变量名.onblur</strong></p>
+<p><strong>2.通过element.className增加类名从而修改样式（适用于样式较多，功能复杂的情况使用）</strong></p>
+<p>即在css先定义好新的样式在新的类名中，再在js中对目标元素设置事件利用className更换新的类</p>
+<p>​        .change {<br>​            background-color: purple;<br>​            color: #fff;<br>​            font-size: 25px;<br>​            margin-top: 100px;<br>​        }<br>​    </style></p>
+</head>
+<body>
+    <div>文本</div>
+    <script type="text/javascript">
+        var test = document.querySelector('div');
+        test.onclick = function() {
+            //将当前类名改为change 从而改变样式
+            this.className = 'change';
+        }
+    </script>
+
+<p>注意：className会完全覆盖先前的类名</p>
+<p>若想同时保留新旧类名 则可以在添加时新旧一起写</p>
+<p>this.className = ‘first change’;      </p>
+<p><strong>排他思想</strong></p>
+<p>如果有同一组元素，想要某一个元素实现某种样式，那么就需要排他思想</p>
+<p><strong>1.先排除其他人的样式</strong></p>
+<p><strong>2.再设置自己的样式</strong></p>
+<p>for( var i = 0;i &lt; btns.length;i++) {     btns[i].onclick = function() {         // 想把所有按钮颜色去掉         // 再修改当前颜色         for(var i = 0;i &lt; btns.length;i ++) {             btns[i].style.backgroundColor = ‘’;         }         this.style.backgroundColor = ‘pink’;     } } </p>
+<p><strong>获取自定义属性</strong></p>
+<p>获取属性一般有两种</p>
+<p>1.element.属性 </p>
+<p><strong>2.element.getAttribute(‘属性’）</strong></p>
+<p>var div = document.querySelector(‘div’); console.log(div.getAttribute(‘index’)); </p>
+<p>区别</p>
+<p>1.第一种用于获取元素本身自带的属性</p>
+<p>2.第二种一般用于获取通过setAttribute自定义的属性（即程序员自己定义的属性），通过setAttribute设置的属性只能用第二种获取</p>
+<p>设置属性值的方法</p>
+<p>1.element.属性 = ‘属性值’；</p>
+<p><strong>2.element.setAttribute（‘属性’，’值‘）；</strong></p>
+<p>var div = document.querySelector(‘div’); div.setAttribute(‘index’,’2’); </p>
+<p>自定义属性也可以通过第一种设置，但只能用xxx.属性名获取</p>
+<p>移除属性的方法</p>
+<p><strong>element.removeAttribute(‘属性’);</strong></p>
+<p>div.removeAttribute(‘index’); </p>
+<p><strong>h5新增自定义属性方法</strong></p>
+<p><strong>data-属性名</strong></p>
+<p><strong>data-开头的属性必定是自定义属性</strong></p>
+<div data-time="2" data-list-name='andy'></div>
+
+<p>获取data自定义属性方法有两种：</p>
+<p><strong>1.element.getAttribute(‘data-属性名’)</strong></p>
+<p>console.log(div.getAttribute(‘data-time’)); div.setAttribute(‘data-index’,2); //设置属性值 </p>
+<p><strong>2.element.dataset.data后面的属性名 或 element.dataset[‘data后面的属性名’]</strong></p>
+<p>console.log(div.dataset.index); console.log(div.dataset[‘index’]); console.log(div.dataset.listName); console.log(div.dataset[‘listName’]); </p>
+<p>特别注意：对于data-后面还有横杠的命名的属性值在利用dataset获取时应该用驼峰命名法，getAttribute则不用</p>
+<p><strong>节点：页面中所有内容都是节点，用node表示</strong></p>
+<p><strong>节点的三个属性：1.节点类型（nodeType ） 2.节点名称（nodeName） 3.节点值（nodeValue）</strong></p>
+<p><strong>元素节点nodeType=1</strong></p>
+<p><strong>属性节点nodeType=2</strong></p>
+<p><strong>文本节点nodeType=3</strong></p>
+<p><strong>操作的主要是元素节点</strong></p>
+<p>节点可以划分为不同的层级关系，常见的是父子兄层级节点</p>
+<p><strong>父子节点操作</strong></p>
+<p><strong>获取父节点</strong></p>
+<p><strong>node.parentNode(获得最近的父节点，如果找不到则返回NULL）</strong></p>
+<p>var erweima = document.querySelector(‘.erweima’); console.log(erweima.parentNode); </p>
+<p><strong>获取子节点</strong></p>
+<p>node.childNodes 返回的是元素节点以及文本节点，</p>
+<p><strong>node.children 只返回元素节点 获得的是伪数组</strong></p>
+<p>console.log(ul.children); </p>
+<p>获取第一个和最后一个子节点</p>
+<p>node.firstChild</p>
+<p>node.lastChild</p>
+<p>以上都返回包括文本节点在内的所有节点 不常用</p>
+<p>node.firstElementChild</p>
+<p>node.lastElementChild</p>
+<p>只返回元素节点，但是有兼容性问题</p>
+<p>实际写法</p>
+<p><strong>node.children[0] 返回第一个</strong></p>
+<p><strong>node.children[node.children.length-1] 返回最后一个</strong></p>
+<p>console.log(ol.children[0]); console.log(ol.children[ol.children.length-1]); </p>
+<p><strong>获取兄弟节点</strong></p>
+<p>node.nextSibling 下一个兄弟节点    </p>
+<p>node.previousSibling 下一个兄弟节点</p>
+<p>以上获取的都是包含文本节点元素节点的兄弟节点 </p>
+<p>var div = document.querySelector(‘div’); console.log(div.nextSibling); console.log(div.previousSibling); </p>
+<p><strong>node.nextElementSibling        下一个兄弟元素节点</strong></p>
+<p><strong>node.previousElementSibling        上一个兄弟元素节点</strong></p>
+<p>以上都只获取为元素节点的兄弟节点 <strong>有兼容性问题</strong></p>
+<p>console.log(div.nextElementSibling); console.log(div.previousElementSibling); </p>
+<p>解决方案：自己利用节点类型nodeType封装一个函数</p>
+<p><strong>创建节点</strong></p>
+<p><strong>document.createElement(元素名称）</strong></p>
+<p>var li = document.createElement(‘li’); </p>
+<p><strong>添加节点（两种方法)</strong></p>
+<p><strong>1.node.appendChild（child);       ndoe为父节点 child为新创建的节点</strong> <strong>添加到父级最后面</strong> </p>
+<p>var ul = document.querySelector(‘ul’); ul.appendChild(li); </p>
+<p><strong>2.node.insertBefore(child,指定位置）  即将新创建的child节点添加到指定元素之前</strong></p>
+<p>var lili = document.createElement(‘li’); ul.insertBefore(lili,ul.children[0]); </p>
+<p><strong>删除节点</strong></p>
+<p><strong>node.removeChild()</strong></p>
+<p>ul.removeChild(ul.children[0]); </p>
+<p><strong>克隆节点</strong></p>
+<p><strong>node.cloneNode()</strong></p>
+<p>括号里如果为空或者是false则只复制node本身不复制里面的子节点</p>
+<p>如果为true则复制节点本身及其所有子节点</p>
+<p>var lili = ul.children[0].cloneNode(); /li var lili = ul.children[0].cloneNode(true); //<li>1</li> </p>
+<p><strong>附：阻止链接跳转可以对a的href设置为javascript：；</strong></p>
+<p><strong>总结</strong></p>
+<p><strong>获取父节点 node.parentNode</strong></p>
+<p><strong>获取子节点 node.children</strong></p>
+<p><strong>获取兄弟节点node.nextElementSiibling  node.previousElementSibling（兼容性差）</strong></p>
+<p><strong>创建节点 document.createElement(节点类型）</strong></p>
+<p><strong>添加节点 尾部添加 node.appendChild()  某个元素之前添加 node.insertBefore(child,指定元素)</strong></p>
+<p><strong>删除节点 node.removeChild() node为删除目标元素的父元素</strong></p>
+<p><strong>复制节点 node.cloneNode()</strong> </p>
+<p><strong>三种动态创建元素区别</strong></p>
+<p><strong>1.document.write()</strong> </p>
+<p><strong>2.element.innerHTML（）  配合字符串使用</strong></p>
+<p><strong>3.document.createElement（）配合append、insertbefore使用</strong></p>
+<p><strong>注意</strong></p>
+<p><strong>1.document.wirte如果是文档流执行完毕写入，会导致页面全部重绘 没啥乱用</strong></p>
+<p><strong>2.innerHTML 创建多个元素效率更高 前提是不要拼接字符串 而是通过先创建数组再将数组转换为字符串赋予对象的形式</strong></p>
+<p><strong>3.createElement（） 创建多个元素效率相对innerHTML的数组赋值方式较低，但是结构更清晰</strong></p>
+<p><strong>总结：不同浏览器下，采取数组赋值的innerHTML效率比creatElement高</strong></p>
+<p><strong>事件高级</strong></p>
+<p><strong>注册事件的两种方法（传统方式和监听注册方式）</strong></p>
+<p><strong>1.传统方式（最简单的方式，即将函数赋值给目标对象的事件属性，属性名字都以”on”开头）</strong></p>
+<p><strong>变量名.onclick = funciton（）{}</strong></p>
+<p>特点：唯一性，即同个元素同个事件只能设置一个处理函数，如果重复注册则以最新一个为准</p>
+<p>var btns = document.querySelectorAll(‘button’);         btns[0].onclick = function() {             alert(‘HI’);         } </p>
+<p><strong>2.监听注册方式（推荐 为W3C标准 IE9之前不支持）</strong></p>
+<p><strong>变量名.addEventListener(‘事件触发方式’,处理函数,事件流执行顺序参数（布尔值））</strong></p>
+<p>特点：用一个元素同一个事件可以注册多个监听器，按注册顺序依次执行</p>
+<p><strong>注意：事件触发方式不能带on，且因为是字符串必须加引号  处理函数可以写函数名也可以写整个函数</strong></p>
+<p>btns[1].addEventListener(‘click’,function() {             alert(‘22’);         }) </p>
+<p><strong>3.attachEvent方式（ie9之前支持 了解即可）</strong></p>
+<p>变量名.attachEvent(事件类型（带on），时间处理函数）</p>
+<p>btns[2].attachEvent(‘onclick’,function() {             alert(‘11’);         }); </p>
+<p><strong>在元素上写事件和addEventListent()的区别</strong></p>
+<p><strong>1.onclick添加事件不能绑定多个事件，后面绑定的会覆盖前面的。而addEventListener能添加多个事件绑定，按顺序执行。</strong></p>
+<p><strong>2.addEventListener方式，不支持低版本的IE。（attachEvent 支持IE）。</strong></p>
+<p><strong>3.普通方式绑定事件后，不可以取消。addEventListener绑定后则可以用 removeEventListener 取消。</strong></p>
+<p><strong>4.addEventListener 是W3C DOM 规范中提供的注册事件监听器的方法。</strong></p>
+<p><strong>5.对于传统事件注册记得加on,如onclick，onkeydown等</strong></p>
+<p><strong>删除事件</strong></p>
+<p><strong>1.对于传统方式注册的事件</strong></p>
+<p><strong>变量名.事件类型 = null</strong></p>
+<p>var divs = document.querySelectorAll(‘div’);         divs[0].onclick = function() {             alert(‘11’);             divs[0].onclick = null;         } </p>
+<p><strong>2.对于监听事件注册的事件</strong></p>
+<p><strong>变量名.removeEventListener(删除的事件类型，删除的函数）</strong></p>
+<p>​    divs[1].addEventListener(‘click’,fn)         function fn() {             alert(‘22’);             divs[1].removeEventListener(‘click’,fn);         } </p>
+<p>3.对于attachEvent注册的事件（了解）</p>
+<p>变量名.detachEvent(删除的事件类型，删除的函数）</p>
+<p>​    divs[2].attachEvent(‘onclick’,fn1);         function fn1() {             alert(‘33’);             divs[2].detachEvent(‘onclick’,fn1);         } </p>
+<p><strong>总结：</strong></p>
+<p><strong>注册事件</strong></p>
+<p><strong>node.onclick</strong></p>
+<p><strong>node.addEventListener(‘事件类型’，处理程序,冒泡与否值）</strong></p>
+<p><strong>删除事件</strong></p>
+<p><strong>node.onclick = null;</strong></p>
+<p><strong>node.removeEventListener (‘事件类型’，处理程序）</strong></p>
+<p><strong>事件流（页面中获取接收事件的顺序）</strong></p>
+<p><strong>DOM事件流：事件发生时会在元素节点之间按照特定顺序传播</strong></p>
+<p><strong>DOM事件流有三个阶段：</strong></p>
+<p><strong>1.捕获阶段</strong></p>
+<p><strong>事件发生时在页面中从document往下一级一级传播的过程</strong></p>
+<p><strong>2.当前目标阶段</strong></p>
+<p><strong>事件到达设置了该事件的元素时的阶段</strong></p>
+<p><strong>3.冒泡阶段</strong></p>
+<p><strong>事件接受后从事件触发节点逐级向上传播到DOM最顶层节点的过程</strong></p>
+<p><img src="C:%5CUsers%5CWHO%5CAppData%5CLocal%5CYNote%5Cdata%5Cqq84C281D5A87880FDA451FD57E40936A6%5Ca3c770a7e6cd4ad3bd07ce1e82579d46%5Cb7d3f32cedef4bb1ba24a0a0a829055b.jpg" alt="img"></p>
+<p>注意：</p>
+<p><strong>1.JS只能执行捕获或者冒泡其中一个阶段</strong></p>
+<p><strong>2.onclick和attachEvent只能获得冒泡阶段</strong></p>
+<p><strong>3.addEventListener第三个参数如果是true，则为捕获阶段（很少用）。如果是false(默认），则为冒泡阶段</strong></p>
+
+        </div>
+        
+            <div class="busuanzi">
+                <span id="busuanzi_container_page_pv">阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            </div>
+        
+    </article>
+    <div class="outline"><span class="fa fa-list"></span></div>
+</div>
+                    <pointer href="javascript:void(0);" class="arrow fa fa-arrow-up"></pointer>
+<pointer href="javascript:void(0);" class="arrow fa fa-arrow-down"></pointer>
+
+            </main>
+            <aside class="aside">
+    <div class="aside-content">
+        <div class="aside-avatar"><img src="/images/maomi.jpg" alt="lhl"></div>
+        <div class="aside-author">lhl</div>
+        <div class="aside-description">爱玩植物大战僵尸</div>
+        <ul class="aside-contact clearFix">
+            <li><span class="fa fa-github"></span><a href="https://github.com/Mikasayooooo" target="_blank" rel="noopener">Github</a></li>
+            <li><span class="fa fa-envelope"></span><a href="javascript:void(0);">1056205431@qq.com</a></li>
+            <li><span class="fa fa-weixin"></span><a href="javascript:void(0);"><img src="" alt="扫描微信二维码，加我哦！"></a></li>
+        </ul>
+    </div>
+</aside>
+                <div class="toolbar"><span class="fa fa-th"></span></div>
+                    <div class="search"><span class="fa fa-search"></span></div>
+                        <div id="particles-js"></div>
+                            
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/jquery.min.js"></script>
+
+                                
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/particles.min.js"></script>
+
+                                    
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/app.js"></script>
+
+                                        
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@11/js/layer/layer.js"></script>
+
+                                            
+<script src="/js/meethigher.js"></script>
+
+                                                
+<script src="/js/toolbar.js"></script>
+
+    </body>
+
+</html>
